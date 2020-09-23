@@ -30,12 +30,16 @@ jobs:
       - name: Run the API UT 
         run: pytest
 
-      - name: Setting Up Credentials
-        uses: actions/gcloud/auth@master
-        env:
-          GCLOUD_AUTH: ${{ secrets.GCP_AUTH }}
-
-      - name: Publishing API on GCP AppEngine
-        uses: actions/gcloud/cli@master
+      - name: Initialize Google Cloud SDK
+        uses: zxyle/publish-gae-action@master
         with:
-          args: "app deploy --quiet --project=jorlugaqui --promote"
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_AUTH }}
+          project_id: ${{ secrets.PROJECT_ID }}
+
+      - name: Publish app to Google App Engine
+          run: |
+            # This client-secret.json is converted by GCP_SA_KEY.
+            gcloud auth activate-service-account ${{ secrets.GCP_SA_EMAIL }} --key-file=client-secret.json
+            gcloud config set project ${{ secrets.PROJECT_ID }}
+            gcloud -q app deploy app.yaml --promote
