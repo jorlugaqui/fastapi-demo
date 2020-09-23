@@ -1,0 +1,45 @@
+(.*/)?#.*#
+(.*/)?.*~
+(.*/)?.*\.py[co]
+*.scss
+*.soy
+*.log
+*.sql
+RCS/**
+.DS_Store
+.coveragerc
+.gcloudignore
+.git
+.gitignore
+gweb-twg-author-dev-339b04d4f7a0.json
+**/__pycache__/**
+*deploy-props
+*deploy-creds
+
+#Root Directory
+/tests/**
+/deployer/**
+/node_modules/**
+package.json
+Gruntfile.js
+README.md
+Makefile
+/.?(virtual|v)?env/.*
+package.json
+*gae_storage/**
+*datastore.db
+venv/**
+coverage/**
+media/**
+
+# editor config folders
+.vscode/**
+.idea/**
+# See https://issuetracker.google.com/issues/35895450#comment39
+
+#Children Directory
+**/tests/**
+**egg-info/**
+**dist-info/**
+static/js/common/closure-library.*
+

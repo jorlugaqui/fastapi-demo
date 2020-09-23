@@ -1,4 +1,4 @@
-name: CI Pipeline 
+name: CI/CD Pipeline
 
 on:
   push:
@@ -29,3 +29,10 @@ jobs:
 
       - name: Run the API UT 
         run: pytest
+
+      - name: Deploying to Google App Engine
+        uses: convictional/gcp-storage-action@master
+        with:
+          application_credentials: ${{ secrets.GCP_AUTH }}
+          project_id: jorlugaqui
+          command: gcloud app deploy app.yaml --stop-previous-version --quiet
