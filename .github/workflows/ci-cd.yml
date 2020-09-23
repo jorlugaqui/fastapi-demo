@@ -30,9 +30,12 @@ jobs:
       - name: Run the API UT 
         run: pytest
 
-      - name: Deploying to Google App Engine
-        uses: convictional/gcp-storage-action@master
+      - name: Setting Up Credentials
+        uses: actions/gcloud/auth@master
+        env:
+          GCLOUD_AUTH: ${{ secrets.GCP_AUTH }}
+
+      - name: Publishing API on GCP AppEngine
+        uses: actions/gcloud/cli@master
         with:
-          application_credentials: ${{ secrets.GCP_AUTH }}
-          project_id: jorlugaqui
-          command: gcloud app deploy app.yaml --stop-previous-version --quiet
+          args: "app deploy --quiet --project=jorlugaqui --promote"
