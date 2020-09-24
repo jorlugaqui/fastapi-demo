@@ -26,7 +26,7 @@ def test_get_developer_by_index():
 def test_get_developer_by_index_default():
     # This index is too big and thus the app should return the
     # first student
-    index = 5
+    index = 15
     response = client.get(f'/api/v1/developers/{index}')
     assert 200 == response.status_code
 
