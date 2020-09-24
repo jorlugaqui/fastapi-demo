@@ -11,9 +11,16 @@ log.addHandler(handler)
 
 
 STUDENTS_DB = [
-    'Fernando Dev',
-    'Omar Dev',
-    'Arley Dev',
+    'Juan Guillermo',
+    'Juan Ortiz',
+    'Manuela Gonzalez',
+    'Calorina Naranjo',
+    'Valery',
+    'Diego Paez',
+    'Arley Valencia',
+    'Omar Meneses',
+    'Fernando Barrera',
+    'Sebastian Jaramillo', 
 ]
 
 
