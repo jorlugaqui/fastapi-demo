@@ -21,6 +21,7 @@ STUDENTS_DB = [
     'Omar Meneses',
     'Fernando Barrera',
     'Sebastian Jaramillo',
+    'Jorge Galvis',
 ]
 
 
