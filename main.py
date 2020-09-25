@@ -14,13 +14,13 @@ STUDENTS_DB = [
     'Juan Guillermo',
     'Juan Ortiz',
     'Manuela Gonzalez',
-    'Calorina Naranjo',
-    'Valery',
+    'Carolina Naranjo',
+    'Valery Valuarte',
     'Diego Paez',
     'Arley Valencia',
     'Omar Meneses',
     'Fernando Barrera',
-    'Sebastian Jaramillo', 
+    'Sebastian Jaramillo',
 ]
 
 
