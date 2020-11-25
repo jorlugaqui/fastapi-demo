@@ -22,7 +22,6 @@ STUDENTS_DB = [
     'Fernando Barrera',
     'Sebastian Jaramillo',
     'Jorge Galvis',
-    'Jose Gutierrez'
 ]
 
 
