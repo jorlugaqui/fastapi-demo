@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7]
+        python-version: [3.7, 3.8]
 
     steps:
       - name: Git Checkout 
@@ -30,16 +30,16 @@ jobs:
       - name: Run the API UT 
         run: pytest
 
-        # - name: Initialize Google Cloud SDK
-        # uses: zxyle/publish-gae-action@master
-        # with:
-        #  service_account_email: ${{ secrets.GCP_SA_EMAIL }}
-        #  service_account_key: ${{ secrets.GCP_AUTH }}
-        #  project_id: ${{ secrets.PROJECT_ID }}
+      - name: Initialize Google Cloud SDK
+        uses: zxyle/publish-gae-action@master
+        with:
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_AUTH }}
+          project_id: ${{ secrets.PROJECT_ID }}
 
-        # - name: Publish app to Google App Engine
-        # run: |
+      - name: Publish app to Google App Engine
+        run: |
           # This client-secret.json is converted by GCP_SA_KEY.
-          # gcloud auth activate-service-account --key-file=client-secret.json
-          # gcloud config set project ${{ secrets.PROJECT_ID }}
-          # gcloud -q app deploy app.yaml --promote
+          gcloud auth activate-service-account --key-file=client-secret.json
+          gcloud config set project ${{ secrets.PROJECT_ID }}
+          gcloud -q app deploy app.yaml --promote
